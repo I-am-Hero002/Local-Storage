@@ -1,0 +1,84 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: .5s ease-in-out;
+}
+
+:root[class=""] {
+  --bg-color: #fff;
+  --toggle-bg: #EFEFEF;
+  --toggle-box: #FFD371;
+  --toggle-sun: #997F44;
+  --toggle-moon: #B1B0B5;
+  --toggle-box-pos: 0px;
+}
+
+:root[class="dark"] {
+  --bg-color: #3C3A47;
+  --toggle-bg: #2D2C35;
+  --toggle-box: #7190FF;
+  --toggle-sun: #77757E;
+  --toggle-moon: #DCE3FF;
+  --toggle-box-pos: 35px;
+}
+
+body {
+  background: var(--bg-color);
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0s;
+}
+
+#box {
+  display: none;
+}
+
+.toggle {
+  --toggle-width: 70px;
+  position: relative;
+  height: 35px;
+  width: var(--toggle-width);
+  border-radius: 100vw;
+  background: var(--toggle-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+svg {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+}
+
+.icon-sun {
+  top: 1px;
+  left: 7px;
+  fill: var(--toggle-sun);
+}
+
+.icon-moon {
+  top: 1px;
+  right: 7px;
+  fill: var(--toggle-moon);
+}
+
+.toggle::before {
+  --box-size: 27px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--toggle-box-pos);
+  margin: 4px;
+  height: var(--box-size);
+  width: var(--box-size);
+  border-radius: 50%;
+  background: var(--toggle-box);
+  z-index: 0;
+}
